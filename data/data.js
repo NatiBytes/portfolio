@@ -1,4 +1,6 @@
-import { IoCodeWorking } from "react-icons/io5";
+import { IoCodeWorking, IoLogoGithub, IoLogoYoutube, IoLogoTwitter , IoLogoLinkedin , IoLogoWhatsapp} from "react-icons/io5";
+import dojo from "../public/images/dojo.jpg";
+import tigraynz from "../public/images/tigraynz.jpg";
 
 export const Experiance = [
   {
@@ -32,5 +34,61 @@ export const Experiance = [
     title: "Developer",
     location: "Wellington",
     description: "Lorem Ipsum",
+  },
+];
+
+export const projects = [
+  {
+    id: 1,
+    name: "NzTigray",
+    images: tigraynz,
+    techs: "TYPESCRIPT, JAVASCRIPT, CSS",
+    githublink: "#",
+  },
+  {
+    id: 2,
+    name: "dojo-blog",
+    images: dojo,
+    techs: "JAVASCRIPT, CSS, HTML",
+    githublink: "#",
+  },
+];
+
+export const SocialLinks = [
+  {
+    id: 1,
+    iconSrc: <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />,
+    name: "GitHub",
+    link: "#",
+  },
+  {
+    id: 2,
+    iconSrc: <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />,
+    name: "YouTube",
+    link: "#",
+  },
+  {
+    id: 3,
+    iconSrc: (
+      <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
+    ),
+    name: "Twitter",
+    link: "#",
+  },
+  {
+    id: 4,
+    iconSrc: (
+      <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
+    ),
+    name: "LinkedIn",
+    link: "#",
+  },
+  {
+    id: 5,
+    iconSrc: (
+      <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
+    ),
+    name: "Whatsapp",
+    link: "#",
   },
 ];

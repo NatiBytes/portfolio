@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Spline from "@splinetool/react-spline";
 import { useState } from "react";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoLogoGithub } from "react-icons/io5";
 import Image from "next/image";
 import profile from "../public/images/profile.jpg";
 import {
@@ -10,7 +10,8 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import {Experiance} from "../data/data"
+import { Experiance, projects, SocialLinks } from "../data/data";
+
 const Home: NextPage = () => {
   const [isActive, setIsActive] = useState(false);
 
@@ -43,21 +44,21 @@ const Home: NextPage = () => {
                 Home
               </a>
               <a
-                href="#About"
+                href="#about"
                 className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
               >
                 {" "}
                 About
               </a>
               <a
-                href="#Projects"
+                href="#project"
                 className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
               >
                 {" "}
                 Projects
               </a>
               <a
-                href="#Contacts"
+                href="#contact"
                 className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
               >
                 {" "}
@@ -92,7 +93,7 @@ const Home: NextPage = () => {
                   Home
                 </a>
                 <a
-                  href="#About"
+                  href="#about"
                   className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
                   onClick={() => setIsActive(false)}
                 >
@@ -100,7 +101,7 @@ const Home: NextPage = () => {
                   About
                 </a>
                 <a
-                  href="#Projects"
+                  href="#project"
                   className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
                   onClick={() => setIsActive(false)}
                 >
@@ -108,7 +109,7 @@ const Home: NextPage = () => {
                   Projects
                 </a>
                 <a
-                  href="#Contacts"
+                  href="#contact"
                   className="tetxt-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in-out"
                   onClick={() => setIsActive(false)}
                 >
@@ -218,12 +219,71 @@ const Home: NextPage = () => {
                     <h4 className="vertical-timeline-element-subtitle">
                       {n.location}
                     </h4>
-                    <p>
-                      {n.description}
-                    </p>
+                    <p>{n.description}</p>
                   </VerticalTimelineElement>
                 ))}
             </VerticalTimeline>
+          </section>
+
+          {/** Project Section */}
+          <section
+            className="flex flex-wrap items-center justify-evenly my-24 gap-4"
+            id="project"
+          >
+            {projects &&
+              projects.map((p) => (
+                <div
+                  key={p.id}
+                  className="border border-zinc-800 rounded-md p-2 min-w-[275px] md:max-w-[275px] hover:border-zinc-600 duration-100 ease-in-out"
+                >
+                  <p className="text-lg text-textBase font-medium uppercase">
+                    {p.name.length > 25 ? `${p.name.slice(0, 25)}...` : p.name}
+                  </p>
+
+                  <Image
+                    src={p.images}
+                    alt="Project Pic"
+                    className="w-full h-full object-cover rounded-md my-4"
+                  ></Image>
+                  <div className="flex flex-1 items-center justify-between">
+                    <p className="text-lg text-gray-300">
+                      {" "}
+                      Technologies
+                      <span className="block text-sm text-gray-500">
+                        {p.techs}
+                      </span>
+                    </p>
+                    <a href={p.githublink}>
+                      <div>
+                        <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </section>
+
+          {/**  contacts */}
+          <section
+            id="contact"
+            className="flex flex-col items-center justify-center w-full my-24"
+          >
+            <p className="text-2xl text-gray-400 capitalize"> Follow me on</p>
+
+            <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
+              {SocialLinks &&
+                SocialLinks.map((s) => (
+                  <a
+                    key={s.id}
+                    href="#"
+                    className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 
+                    rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+                  >
+                    {s.iconSrc}
+                    <p className="text-lg text-textBase"> {s.name}</p>
+                  </a>
+                ))}
+            </div>
           </section>
         </main>
       </div>
