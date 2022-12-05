@@ -5,7 +5,12 @@ import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import Image from "next/image";
 import profile from "../public/images/profile.jpg";
-
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import {Experiance} from "../pages/data"
 const Home: NextPage = () => {
   const [isActive, setIsActive] = useState(false);
 
@@ -164,8 +169,8 @@ const Home: NextPage = () => {
                 laudantium ea saepe excepturi, quasi eum inventore
                 exercitationem iure, voluptates nam consequuntur! Lorem ipsum
                 dolor sit amet, consectetur adipisicing elit. Fuga illo
-                doloribus ad. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Laboriosam vero perspiciatis id animi. Alias in vero hic
+                doloribus ad. Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Laboriosam vero perspiciatis id animi. Alias in vero hic.
               </p>
 
               <button
@@ -186,6 +191,39 @@ const Home: NextPage = () => {
                 </span>
               </button>
             </div>
+          </section>
+
+          {/** Time Line */}
+          <section className="w-full flex items-center justify-center">
+            <VerticalTimeline className="">
+              {Experiance &&
+                Experiance.map((n) => (
+                  <VerticalTimelineElement
+                    key={n.id}
+                    className="vertical-timeline-element--work"
+                    contentStyle={{
+                      background: "rgb(21,24,31)",
+                      color: "#888",
+                    }}
+                    contentArrowStyle={{
+                      borderRight: "7px solid  rgb(21,24,31)",
+                    }}
+                    date={n.date}
+                    iconStyle={{ background: "rgb(21,24,31)", color: "#888" }}
+                    icon={n.iconSrc}
+                  >
+                    <h3 className="vertical-timeline-element-title">
+                      {n.title}
+                    </h3>
+                    <h4 className="vertical-timeline-element-subtitle">
+                      {n.location}
+                    </h4>
+                    <p>
+                      {n.description}
+                    </p>
+                  </VerticalTimelineElement>
+                ))}
+            </VerticalTimeline>
           </section>
         </main>
       </div>
