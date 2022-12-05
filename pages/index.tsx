@@ -123,7 +123,8 @@ const Home: NextPage = () => {
                     {" "}
                     Contacts
                   </a>
-                  <motion.a whileTap={{scale  : 0.8}}
+                  <motion.a
+                    whileTap={{ scale: 0.8 }}
                     href="#"
                     className="
                 onClick={() => setIsActive(false)}text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1
@@ -182,7 +183,8 @@ const Home: NextPage = () => {
                   in vero hic.
                 </p>
 
-                <motion.button whileTap={{scale  : 0.8}}
+                <motion.button
+                  whileTap={{ scale: 0.8 }}
                   className="w-full md:w-auto relative mt-6 inline-flex items-center 
               justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium
                text-gray-900 rounded-lg group bg-gradient-to-br from-green-400
@@ -264,7 +266,7 @@ const Home: NextPage = () => {
                         </span>
                       </p>
                       <a href={p.githublink}>
-                        <motion.div whileTap={{scale : 0.8}}>
+                        <motion.div whileTap={{ scale: 0.8 }}>
                           <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
                         </motion.div>
                       </a>
@@ -283,12 +285,14 @@ const Home: NextPage = () => {
               <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
                 {SocialLinks &&
                   SocialLinks.map((s) => (
-                    <motion.a whileTap={{scale : 0.8}}
+                    <motion.a
+                      whileTap={{ scale: 0.8 }}
                       key={s.id}
                       href="#"
                       className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 
                     rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3"
                     >
+                      
                       {s.iconSrc}
                       <p className="text-lg text-textBase"> {s.name}</p>
                     </motion.a>
