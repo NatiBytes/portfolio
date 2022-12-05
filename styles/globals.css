@@ -6,3 +6,13 @@ body::-webkit-scrollbar,
 html::-webkit-scrollbar {
   display: none;
 }
+
+@layer components {
+    #__next {
+        @apply h-full bg-red-500;
+    }
+    html,
+    body {
+        @apply h-full;
+    }
+}
