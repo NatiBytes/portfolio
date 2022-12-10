@@ -1,4 +1,11 @@
-import { IoCodeWorking, IoLogoGithub, IoLogoYoutube, IoLogoTwitter , IoLogoLinkedin , IoLogoWhatsapp} from "react-icons/io5";
+import {
+  IoCodeWorking,
+  IoLogoGithub,
+  IoLogoYoutube,
+  IoLogoTwitter,
+  IoLogoLinkedin,
+  IoLogoWhatsapp,
+} from "react-icons/io5";
 import dojo from "../public/images/dojo.jpg";
 import tigraynz from "../public/images/tigraynz.jpg";
 
@@ -81,7 +88,7 @@ export const SocialLinks = [
       <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
     ),
     name: "LinkedIn",
-    link: "#",
+    link: "https://linkedin.com/in/natnael-gebremichael-401796190",
   },
   {
     id: 5,
