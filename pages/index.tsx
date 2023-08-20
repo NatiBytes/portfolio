@@ -17,7 +17,9 @@ const Home: NextPage = () => {
   const [isActive, setIsActive] = useState(false);
 
   // Function to handle the download link click
-  const handleDownloadClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleDownloadClick = (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) => {
     event.preventDefault(); // Prevent the default link behavior
 
     const downloadUrl =
@@ -211,13 +213,14 @@ const Home: NextPage = () => {
                  hover:text-white dark:text-white focus:ring-4 focus:ring-green-200
                   dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50
                    hover:dark:shadow-lg hover:dark:shadow-teal-800/80"
+                  onClick={handleDownloadClick}
                 >
                   <span
                     className="w-full md:w-auto relative px-5 py-2.5 transition-all 
                     ease-in duration-75 bg-white dark:bg-gray-900 rounded-md 
                     group-hover:bg-opacity-0"
                   >
-                    Download
+                    Downloadss
                   </span>
                 </motion.button>
               </div>
