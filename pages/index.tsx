@@ -16,6 +16,24 @@ import { motion, AnimatePresence } from "framer-motion";
 const Home: NextPage = () => {
   const [isActive, setIsActive] = useState(false);
 
+  // Function to handle the download link click
+  const handleDownloadClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault(); // Prevent the default link behavior
+
+    const downloadUrl =
+      "https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/4f593c03653f847fe20177b15527f6a13c664826/CV_Place_Holder_document.pdf"; // Provide the actual download URL
+    const fileName = "Natnael_Gebremichael_CV.pdf"; // Specify the filename for the download
+
+    // Ensure downloadUrl is not null before assigning it
+    if (downloadUrl) {
+      const downloadLink = document.createElement("a");
+      downloadLink.href = downloadUrl;
+      downloadLink.download = fileName; // Use the specified filename
+      downloadLink.target = "_blank"; // Open in a new tab
+      downloadLink.click();
+    }
+  };
+
   return (
     <AnimatePresence initial={false}>
       <div id="root">
@@ -67,9 +85,11 @@ const Home: NextPage = () => {
                   Contacts
                 </a>
                 <a
-                  href="#"
+                  href="https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/4f593c03653f847fe20177b15527f6a13c664826/CV_Place_Holder_document.pdf"
                   className="ml-auto text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1
               rounded-xl hover:border-gray-100 duration-100 ease-in-out"
+                  onClick={handleDownloadClick} // Attach the click handler
+                  download="Natnael_Gebremichael_CV.pdf" // Add the download attribute
                 >
                   Download
                 </a>
@@ -173,14 +193,13 @@ const Home: NextPage = () => {
               {/**Content Box */}
               <div className="w-full h-420 flex flex-col items-center justify-center">
                 <p className="text-lg text-textBase text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
-                  illo doloribus ad. Laborum tempora quia sequi aliquid quisquam
-                  laudantium ea saepe excepturi, quasi eum inventore
-                  exercitationem iure, voluptates nam consequuntur! Lorem ipsum
-                  dolor sit amet, consectetur adipisicing elit. Fuga illo
-                  doloribus ad. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Laboriosam vero perspiciatis id animi. Alias
-                  in vero hic.
+                  Results-driven professional with over 2 years of experience in
+                  DevOps, community engagement, and technical leadership roles.
+                  Adept at collaborating in cross-functional teams,
+                  communicating technical concepts to non-technical
+                  stakeholders, and continuously learning to stay up-to-date
+                  with industry trends. Strong collaborator with excellent
+                  communication and organizational skills.
                 </p>
 
                 <motion.button
