@@ -220,7 +220,7 @@ const Home: NextPage = () => {
                     ease-in duration-75 bg-white dark:bg-gray-900 rounded-md 
                     group-hover:bg-opacity-0"
                   >
-                    Downloadss
+                    Download
                   </span>
                 </motion.button>
               </div>
