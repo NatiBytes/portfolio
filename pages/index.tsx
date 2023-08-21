@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     event.preventDefault(); // Prevent the default link behavior
 
     const downloadUrl =
-      "https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/4f593c03653f847fe20177b15527f6a13c664826/CV_Place_Holder_document.pdf"; // Provide the actual download URL
+      "https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/2d4049f96ef9a6b47db01259f11cfda838fca272/Natnael_Gebremichael_CV.pdf"; // Provide the actual download URL
     const fileName = "Natnael_Gebremichael_CV.pdf"; // Specify the filename for the download
 
     // Ensure downloadUrl is not null before assigning it
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
                   Contacts
                 </a>
                 <a
-                  href="https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/4f593c03653f847fe20177b15527f6a13c664826/CV_Place_Holder_document.pdf"
+                  href="https://raw.githubusercontent.com/NatnaelGebremichael/NatnaelGebremichael/2d4049f96ef9a6b47db01259f11cfda838fca272/Natnael_Gebremichael_CV.pdf"
                   className="ml-auto text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1
               rounded-xl hover:border-gray-100 duration-100 ease-in-out"
                   onClick={handleDownloadClick} // Attach the click handler
