@@ -53,4 +53,4 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
       </defs>
     </svg>
   );
-};
+}
