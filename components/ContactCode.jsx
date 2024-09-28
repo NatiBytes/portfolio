@@ -13,7 +13,7 @@ const contactItems = [
   },
   {
     social: 'github',
-    link: 'itsnitinr',
+    link: 'NatnaelGebremichael',
     href: 'https://github.com/natnaelgebremichael',
   },
   {
@@ -21,16 +21,6 @@ const contactItems = [
     link: 'natnael-Gebremichael',
     href: 'https://www.linkedin.com/in/natnael-gebremichael/',
   },
-  // {
-  //   social: 'polywork',
-  //   link: 'Temp',
-  //   href: 'https://www.polywork.com/temp',
-  // },
-  // {
-  //   social: 'codesandbox',
-  //   link: 'itsnitinr',
-  //   href: 'https://codesandbox.io/u/itsnitinr',
-  // },
 ];
 
 const ContactCode = () => {

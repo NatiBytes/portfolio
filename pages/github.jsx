@@ -3,7 +3,7 @@ import GitHubCalendar from 'react-github-calendar';
 import RepoCard from '../components/RepoCard';
 import styles from '../styles/GithubPage.module.css';
 
-const GithubPage = ({ repos, user }) => {
+const GithubPage = ({ repos, user, error }) => {
   const theme = {
     level0: '#161B22',
     level1: '#0e4429',
@@ -11,6 +11,14 @@ const GithubPage = ({ repos, user }) => {
     level3: '#26a641',
     level4: '#39d353',
   };
+
+  if (error) {
+    return <div className={styles.error}>Error: {error}</div>;
+  }
+
+  if (!user) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
 
   return (
     <>
@@ -33,9 +41,11 @@ const GithubPage = ({ repos, user }) => {
         </div>
       </div>
       <div className={styles.container}>
-        {repos.map((repo) => (
-          <RepoCard key={repo.id} repo={repo} />
-        ))}
+        {repos && repos.length > 0 ? (
+          repos.map((repo) => <RepoCard key={repo.id} repo={repo} />)
+        ) : (
+          <p>No repositories found.</p>
+        )}
       </div>
       <div className={styles.contributions}>
         <GitHubCalendar
@@ -49,34 +59,48 @@ const GithubPage = ({ repos, user }) => {
   );
 };
 
-export async function getStaticProps() {
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
-    {
-      headers: {
-        Authorization: `token ${process.env.GITHUB_API_KEY}`,
-      },
-    }
-  );
-  const user = await userRes.json();
-
-  const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
-    {
-      headers: {
-        Authorization: `token ${process.env.GITHUB_API_KEY}`,
-      },
-    }
-  );
-  let repos = await repoRes.json();
-  repos = repos
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 6);
-
-  return {
-    props: { title: 'GitHub', repos, user },
-    revalidate: 10,
-  };
-}
-
 export default GithubPage;
+
+export async function getStaticProps() {
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+
+  try {
+    // Fetch user data
+    const userRes = await fetch(`https://api.github.com/users/${username}`);
+    const userData = await userRes.json();
+    console.log('User API Response:', userData);
+
+    if (!userRes.ok) {
+      throw new Error(`Failed to fetch user data: ${userData.message}`);
+    }
+
+    // Fetch repos data
+    const repoRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+    const reposData = await repoRes.json();
+    console.log('Repos API Response:', reposData);
+
+    if (!repoRes.ok) {
+      throw new Error(`Failed to fetch repos: ${reposData.message}`);
+    }
+
+    if (!Array.isArray(reposData)) {
+      throw new Error('Repos data is not in the expected format');
+    }
+
+    // Sort repos by star count and slice to get top 6
+    const sortedRepos = reposData
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+      .slice(0, 6);
+
+    return {
+      props: { title: 'GitHub', repos: sortedRepos, user: userData, error: null },
+      revalidate: 60 * 60, // Revalidate every hour
+    };
+  } catch (error) {
+    console.error('Error in getStaticProps:', error);
+    return {
+      props: { title: 'GitHub', repos: [], user: null, error: error.message },
+      revalidate: 60 * 60, // Revalidate every hour
+    };
+  }
+}

@@ -1,11 +1,50 @@
 [
   {
     "id": 1,
-    "name": "Driwwwle",
-    "image": "https://imgur.com/kbGs6zH.png",
+    "name": "Inventory-Management",
+    "image": "/IMA2.jpeg",
     "description": "Temp Desc",
     "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
-    "source_code": "Temp",
-    "demo": "https://natnael.dev/"
-  }
+    "source_code": "https://github.com/NatnaelGebremichael/inventory-management"
+  },
+  {
+    "id": 2,
+    "name": "Geospatial",
+    "image": "/Geospatial1.jpeg",
+    "description": "Temp Desc",
+    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
+    "source_code": "https://github.com/NatnaelGebremichael/Geospatial"
+  },
+  {
+    "id": 3,
+    "name": "MarketPlace",
+    "image": "/MP4.jpeg",
+    "description": "A dynamic, user-friendly marketplace platform designed to connect MarketPlace with buyers.",
+    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
+    "source_code": "https://github.com/NatnaelGebremichael/MarketPlace"
+  },
+  {
+    "id": 4,
+    "name": "Trello-Clone",
+    "image": "/TC2.jpeg",
+    "description": "Trello Clone is an end-to-end fullstack web app all with workspaces, boards, lists, cards, audit logs / activity as well as member roles.",
+    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
+    "source_code": "https://github.com/NatnaelGebremichael/Trello-Clone"
+  },
+  {
+    "id": 5,
+    "name": "Ride-Admin",
+    "image": "/RA2.jpeg",
+    "description": "This project is a Ride Hailing app for Ethiopia. Built using Nextjs, Firebase, and Firestore. The app allows Admin to monitor inprogress trips, track number of daily trips, available cars etc..",
+    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
+    "source_code": "https://github.com/NatnaelGebremichael/Ride-Admin"
+  },
+  {
+    "id": 6,
+    "name": "Food-Delivery",
+    "image": "/FD3.jpeg",
+    "description": "This project is a food delivery app built using React Native, Expo, Firebase, and Firestore. The app allows users to browse a variety of restaurants and menus, place orders, and track their deliveries in real-time.",
+    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
+    "source_code": "https://github.com/NatnaelGebremichael/Food-Delivery"
+  }  
 ]
